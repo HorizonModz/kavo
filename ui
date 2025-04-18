@@ -825,7 +825,7 @@ function Kavo.CreateLib(kavName, themeList)
                 write.ImageRectSize = Vector2.new(36, 36)
 
                 TextBox.Parent = textboxElement
-                TextBox.BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 - 6, themeList.ElementColor.g * 255 - 6, themeList.ElementColor.b * 255 - 7)
+                TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox.BorderSizePixel = 0
                 TextBox.ClipsDescendants = true
                 TextBox.Position = UDim2.new(0.488749921, 0, 0.212121218, 0)
