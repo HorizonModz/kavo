@@ -11,10 +11,12 @@ function Kavo:DraggingEnabled(frame, parent)
         
 parent = parent or frame
 
+-- Variables
 local dragging = false
 local dragInput, mousePos, framePos
 local UserInputService = game:GetService("UserInputService")
 
+-- InputBegan: Start dragging (both Mouse and Touch)
 frame.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         dragging = true
@@ -30,12 +32,14 @@ frame.InputBegan:Connect(function(input)
     end
 end)
 
+-- InputChanged: Track drag movement (both Mouse and Touch)
 frame.InputChanged:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
         dragInput = input
     end
 end)
 
+-- General InputChanged for handling dragging
 UserInputService.InputChanged:Connect(function(input)
     if input == dragInput and dragging then
         local delta = input.Position - mousePos
