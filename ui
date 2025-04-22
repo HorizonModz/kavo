@@ -43,7 +43,6 @@ function Kavo:DraggingEnabled(frame, parent)
     end)
 end
 
-
 function Utility:TweenObject(obj, properties, duration, ...)
     tween:Create(obj, tweeninfo(duration, ...), properties):Play()
 end
