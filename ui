@@ -50,9 +50,19 @@ UserInputService.InputChanged:Connect(function(input)
     end
 end)
 
-function Utility:TweenObject(obj, properties, duration, ...)
-    tween:Create(obj, tweeninfo(duration, ...), properties):Play()
+function Utility:TweenObject(obj, properties, duration, easingStyle, easingDirection)
+    -- Ensure you have the correct TweenInfo constructor
+    local tweenInfo = TweenInfo.new(duration, easingStyle, easingDirection)
+
+    -- Check if obj and properties are valid before proceeding
+    if obj and properties then
+        local tween = game:GetService("TweenService"):Create(obj, tweenInfo, properties)
+        tween:Play()
+    else
+        warn("Invalid object or properties passed to TweenObject")
+    end
 end
+
 
 
 local themes = {
